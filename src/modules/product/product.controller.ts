@@ -12,11 +12,11 @@ export const addProduct = async (req: Request, res: Response) => {
 }
 
 export const editProduct = async (req: Request, res: Response) => {
-  const product = await updateProduct(req.params.id, req.body)
+  const product = await updateProduct(req.params.id as string, req.body)
   res.json(product)
 }
 
 export const removeProduct = async (req: Request, res: Response) => {
-  await deleteProduct(req.params.id)
+  await deleteProduct(req.params.id as string)
   res.json({ message: "Product deleted" })
 }

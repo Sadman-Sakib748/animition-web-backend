@@ -7,16 +7,16 @@ export const getAllUsers = async (req: Request, res: Response) => {
 }
 
 export const getSingleUser = async (req: Request, res: Response) => {
-  const user = await getUserById(req.params.id)
+  const user = await getUserById(req.params.id as string)
   res.json(user)
 }
 
 export const editUser = async (req: Request, res: Response) => {
-  const user = await updateUser(req.params.id, req.body)
+  const user = await updateUser(req.params.id as string, req.body)
   res.json(user)
 }
 
 export const removeUser = async (req: Request, res: Response) => {
-  await deleteUser(req.params.id)
+  await deleteUser(req.params.id as string)
   res.json({ message: "User deleted" })
 }

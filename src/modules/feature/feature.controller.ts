@@ -12,11 +12,11 @@ export const addFeature = async (req: Request, res: Response) => {
 }
 
 export const editFeature = async (req: Request, res: Response) => {
-  const feature = await updateFeature(req.params.id, req.body)
+  const feature = await updateFeature(req.params.id as string, req.body)
   res.json(feature)
 }
 
 export const removeFeature = async (req: Request, res: Response) => {
-  await deleteFeature(req.params.id)
+  await deleteFeature(req.params.id as string)
   res.json({ message: "Feature deleted" })
 }

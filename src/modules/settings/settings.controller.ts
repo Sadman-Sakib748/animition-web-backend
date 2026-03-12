@@ -50,7 +50,7 @@ export const getDefaultSettingsController = async (req: Request, res: Response) 
 
 export const getSettingsByIdController = async (req: Request, res: Response) => {
   try {
-    const settings = await getSettingsById(req.params.id)
+    const settings = await getSettingsById(req.params.id as string)
     if (!settings) {
       return res.status(404).json({
         success: false,
@@ -98,7 +98,7 @@ export const addSettings = async (req: Request, res: Response) => {
 
 export const editSettings = async (req: Request, res: Response) => {
   try {
-    const settings = await updateSettings(req.params.id, req.body)
+    const settings = await updateSettings(req.params.id as string, req.body)
     if (!settings) {
       return res.status(404).json({
         success: false,
@@ -121,7 +121,7 @@ export const editSettings = async (req: Request, res: Response) => {
 
 export const removeSettings = async (req: Request, res: Response) => {
   try {
-    const settings = await deleteSettings(req.params.id)
+    const settings = await deleteSettings(req.params.id as string)
     if (!settings) {
       return res.status(404).json({
         success: false,
